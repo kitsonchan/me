@@ -109,7 +109,7 @@ function renderObjects() {
         alphaTest: 0.01,
         opacity: 0.02,
         blending: THREE.NormalBlending,
-        map: new THREE.TextureLoader().load("/assets/bokeh.png"),
+        map: new THREE.TextureLoader().load("assets/bokeh.png"),
     });
 
     const bmaterial2 = new THREE.PointsMaterial({
@@ -120,7 +120,7 @@ function renderObjects() {
         alphaTest: 0.01,
         opacity: 0.02,
         blending: THREE.NormalBlending,
-        map: new THREE.TextureLoader().load("/assets/bokeh.png"),
+        map: new THREE.TextureLoader().load("assets/bokeh.png"),
     });
 
     bokeh1 = new THREE.Points(bgeometry1, bmaterial1);
@@ -157,7 +157,7 @@ function renderObjects() {
         opacity: 0.5,
         blending: THREE.NormalBlending,
         depthWrite: false,
-        map: new THREE.TextureLoader().load("/assets/dot.png"),
+        map: new THREE.TextureLoader().load("assets/dot.png"),
     });
 
     bgpoints = new THREE.Points(pgeometry, pmaterial);
@@ -209,7 +209,7 @@ function renderObjects() {
         opacity: 0.5,
         blending: THREE.NormalBlending,
         depthWrite: false,
-        map: new THREE.TextureLoader().load("/assets/dot.png"),
+        map: new THREE.TextureLoader().load("assets/dot.png"),
     });
 
     points = new THREE.Points(geometry, material);

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+* {
+    box-sizing: content-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    background: -moz-linear-gradient(top, #243949 0%, #517fa4 100%);
+    background: -webkit-linear-gradient(top, #243949 0%, #517fa4 100%);
+    background: linear-gradient(to bottom, #243949 0%, #517fa4 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#11e8bb', endColorstr='#8200c9', GradientType=0);
+}
+
+#bg {
+    position: fixed;
+    z-index: -1;
+}
+
+body {
+    margin: 0 !important;
+}
+
+#contentbox {
+    user-select: none;
+    color: whitesmoke;
+    padding: 2rem;
+    z-index: 1;
+}
+
+#title {
+    font-size: 2rem;
+}
+
+#content {
+    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+    #title {
+        font-size: 3rem;
+    }
+    #content {
+        font-size: 1.5rem;
+    }
+}

@@ -9,27 +9,22 @@ var initDone = false;
 var pageData = [{
         title: "Kitson Chan",
         content: "2022 Computer Science graduate<br>Focusing on frontend development",
-        detail: "Desc 1"
+        detail: "<img src=\"./assets/picture.jpg\" alt=\"me\"/>"
     },
     {
         title: "Experiences",
         content: "Projects & Working Experiences",
-        detail: "Desc 2"
-    },
-    {
-        title: "Technologies",
-        content: "Tools that I use at work",
-        detail: "Desc 3"
+        detail: "<div class=\"section\">Frontend Developer<br>Ecosa - KR Global Limited, June 2022 - November 2022</div><div class=\"section\">Part-time Developer<br>Nuthon IT Solutions Limited, September 2021 - May 2022</div><div class=\"section\">Intern Developer<br>Nuthon IT Solutions Limited, October 2020 - September 2021</div>"
     },
     {
         title: "About This Site",
         content: "What inspired me to make this site",
-        detail: "Desc 4"
+        detail: "One day when I was surfing around on <a href=\"https://www.awwwards.com\">Awwwards.com</a> for very cool looking sites I came across the <a href=\"https://www.nasdaq50.com\">Nasdaq site</a>. Im impressed by the particle effects and since I enjoyed learning and working with 3d graphics and animations, I thought it would be cool to have something like this for myself too."
     },
     {
         title: "About Me",
         content: "Hobbies and More :)",
-        detail: "Desc 5"
+        detail: "I enjoy doing sports in leisure time. Football ( or soccer anyway :| ) is definitely my favorite to not only watch but also play myself. I am also eager to try anything new. I tried to teach myself play piano and I can play 3 songs. Apart from my native Chinese and English, I also speak Spanish and I am planning to travel to South America!"
     }
 ]
 
@@ -71,90 +66,88 @@ function renderObjects() {
     const contentbox = document.getElementById("contentbox")
     contentbox.appendChild(titlediv)
     contentbox.appendChild(contentdiv)
-    gsap.timeline()
-        .from("#title", { opacity: 0, duration: 1, ease: 'power1.in' })
-        .from("#content", { opacity: 0, duration: 1, ease: 'power1.in' })
+    initAnim()
 
     ///Bokeh///
-    const bokehPoints1 = [];
-    const bokehPoints2 = [];
-    const bokehPoints3 = [];
-    const bokehPoints4 = [];
+    // const bokehPoints1 = [];
+    // const bokehPoints2 = [];
+    // const bokehPoints3 = [];
+    // const bokehPoints4 = [];
 
-    for (let i = 0; i < 50; i++) {
-        bokehPoints1.push(
-            THREE.MathUtils.randFloatSpread(50),
-            THREE.MathUtils.randFloatSpread(50),
-            THREE.MathUtils.randFloatSpread(50)
-        );
-        bokehPoints2.push(
-            THREE.MathUtils.randFloatSpread(50),
-            THREE.MathUtils.randFloatSpread(50),
-            THREE.MathUtils.randFloatSpread(50)
-        );
-        bokehPoints3.push(
-            THREE.MathUtils.randFloatSpread(80),
-            THREE.MathUtils.randFloatSpread(80),
-            THREE.MathUtils.randFloatSpread(80)
-        );
-        bokehPoints4.push(
-            THREE.MathUtils.randFloatSpread(80),
-            THREE.MathUtils.randFloatSpread(80),
-            THREE.MathUtils.randFloatSpread(80)
-        );
-    }
+    // for (let i = 0; i < 50; i++) {
+    //     bokehPoints1.push(
+    //         THREE.MathUtils.randFloatSpread(50),
+    //         THREE.MathUtils.randFloatSpread(50),
+    //         THREE.MathUtils.randFloatSpread(50)
+    //     );
+    //     bokehPoints2.push(
+    //         THREE.MathUtils.randFloatSpread(50),
+    //         THREE.MathUtils.randFloatSpread(50),
+    //         THREE.MathUtils.randFloatSpread(50)
+    //     );
+    //     bokehPoints3.push(
+    //         THREE.MathUtils.randFloatSpread(80),
+    //         THREE.MathUtils.randFloatSpread(80),
+    //         THREE.MathUtils.randFloatSpread(80)
+    //     );
+    //     bokehPoints4.push(
+    //         THREE.MathUtils.randFloatSpread(80),
+    //         THREE.MathUtils.randFloatSpread(80),
+    //         THREE.MathUtils.randFloatSpread(80)
+    //     );
+    // }
 
-    const bgeometry1 = new THREE.BufferGeometry();
-    const bgeometry2 = new THREE.BufferGeometry();
-    const bgeometry3 = new THREE.BufferGeometry();
-    const bgeometry4 = new THREE.BufferGeometry();
-    bgeometry1.setAttribute(
-        "position",
-        new THREE.Float32BufferAttribute(bokehPoints1, 3)
-    );
-    bgeometry2.setAttribute(
-        "position",
-        new THREE.Float32BufferAttribute(bokehPoints2, 3)
-    );
-    bgeometry3.setAttribute(
-        "position",
-        new THREE.Float32BufferAttribute(bokehPoints3, 3)
-    );
-    bgeometry4.setAttribute(
-        "position",
-        new THREE.Float32BufferAttribute(bokehPoints4, 3)
-    );
+    // const bgeometry1 = new THREE.BufferGeometry();
+    // const bgeometry2 = new THREE.BufferGeometry();
+    // const bgeometry3 = new THREE.BufferGeometry();
+    // const bgeometry4 = new THREE.BufferGeometry();
+    // bgeometry1.setAttribute(
+    //     "position",
+    //     new THREE.Float32BufferAttribute(bokehPoints1, 3)
+    // );
+    // bgeometry2.setAttribute(
+    //     "position",
+    //     new THREE.Float32BufferAttribute(bokehPoints2, 3)
+    // );
+    // bgeometry3.setAttribute(
+    //     "position",
+    //     new THREE.Float32BufferAttribute(bokehPoints3, 3)
+    // );
+    // bgeometry4.setAttribute(
+    //     "position",
+    //     new THREE.Float32BufferAttribute(bokehPoints4, 3)
+    // );
 
-    const bmaterial1 = new THREE.PointsMaterial({
-        size: 7,
-        sizeAttenuation: true,
-        alphaTest: 0.5,
-        transparent: true,
-        alphaTest: 0.01,
-        opacity: 0.02,
-        blending: THREE.NormalBlending,
-        map: new THREE.TextureLoader().load("assets/bokeh.png"),
-    });
+    // const bmaterial1 = new THREE.PointsMaterial({
+    //     size: 7,
+    //     sizeAttenuation: true,
+    //     alphaTest: 0.5,
+    //     transparent: true,
+    //     alphaTest: 0.01,
+    //     opacity: 0.02,
+    //     blending: THREE.NormalBlending,
+    //     map: new THREE.TextureLoader().load("assets/bokeh.png"),
+    // });
 
-    const bmaterial2 = new THREE.PointsMaterial({
-        size: 12,
-        sizeAttenuation: true,
-        alphaTest: 0.5,
-        transparent: true,
-        alphaTest: 0.01,
-        opacity: 0.02,
-        blending: THREE.NormalBlending,
-        map: new THREE.TextureLoader().load("assets/bokeh.png"),
-    });
+    // const bmaterial2 = new THREE.PointsMaterial({
+    //     size: 12,
+    //     sizeAttenuation: true,
+    //     alphaTest: 0.5,
+    //     transparent: true,
+    //     alphaTest: 0.01,
+    //     opacity: 0.02,
+    //     blending: THREE.NormalBlending,
+    //     map: new THREE.TextureLoader().load("assets/bokeh.png"),
+    // });
 
-    bokeh1 = new THREE.Points(bgeometry1, bmaterial1);
-    bokeh2 = new THREE.Points(bgeometry2, bmaterial1);
-    bokeh3 = new THREE.Points(bgeometry3, bmaterial2);
-    bokeh4 = new THREE.Points(bgeometry4, bmaterial2);
-    scene.add(bokeh1);
-    scene.add(bokeh2);
-    scene.add(bokeh3);
-    scene.add(bokeh4);
+    // bokeh1 = new THREE.Points(bgeometry1, bmaterial1);
+    // bokeh2 = new THREE.Points(bgeometry2, bmaterial1);
+    // bokeh3 = new THREE.Points(bgeometry3, bmaterial2);
+    // bokeh4 = new THREE.Points(bgeometry4, bmaterial2);
+    // scene.add(bokeh1);
+    // scene.add(bokeh2);
+    // scene.add(bokeh3);
+    // scene.add(bokeh4);
     ////////
     const particles = [];
 
@@ -181,7 +174,7 @@ function renderObjects() {
         opacity: 0.5,
         blending: THREE.NormalBlending,
         depthWrite: false,
-        map: new THREE.TextureLoader().load("assets/dot.png"),
+        map: new THREE.TextureLoader().load("./assets/dot.png"),
     });
 
     bgpoints = new THREE.Points(pgeometry, pmaterial);
@@ -233,12 +226,28 @@ function renderObjects() {
         opacity: 0.5,
         blending: THREE.NormalBlending,
         depthWrite: false,
-        map: new THREE.TextureLoader().load("assets/dot.png"),
+        map: new THREE.TextureLoader().load("./assets/dot.png"),
     });
 
     points = new THREE.Points(geometry, material);
     scene.add(points);
     initDone = true;
+}
+
+function initAnim() {
+    gsap.timeline()
+        .from("#title", { opacity: 0, duration: 1.5, ease: 'power1.in' })
+        .to("#bar .progress", { right: 0, duration: 1, ease: 'power2.out' })
+        .from("#content", { opacity: 0, duration: 1, ease: 'power1.in' })
+        .to("#bar .progress", { right: "75%", duration: 1, ease: 'power2.out' })
+}
+
+function animateTransition(t1, t2, index) {
+    const progress = (1 - (1 / pageData.length) - (index / pageData.length)) * 100
+    gsap.to("#bar .progress", { right: `${progress}%`, duration: 0.5, ease: 'power2.out' })
+    gsap.timeline()
+        .from("#title", { opacity: 0, duration: t1, ease: 'power1.in' })
+        .from("#content", { opacity: 0, duration: t2, ease: 'power1.in' })
 }
 
 window.addEventListener("resize", onWindowResize, false);
@@ -262,8 +271,19 @@ function fitCameraToObject(camera, objectX, objectY, objectZ) {
 
 var isShowDetail = false
 var currentIndex = 0;
+const debounce = function(fn, d) {
+    let timer;
+    return function() {
+        let context = this;
+        let args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn.apply(context, args);
+        }, d);
+    }
+}
 
-window.addEventListener("wheel", (e) => {
+window.addEventListener("wheel", debounce((e) => {
     isShowDetail = !isShowDetail
     if (isShowDetail && isMainZoom) {
         showDetail(
@@ -290,12 +310,11 @@ window.addEventListener("wheel", (e) => {
         currentIndex %= storedlocation.length;
         titlediv.innerHTML = pageData[currentIndex].title;
         contentdiv.innerHTML = pageData[currentIndex].content;
-        gsap.from("#title", { opacity: 0, duration: 1, ease: 'power1.in' })
-        gsap.from("#content", { opacity: 0, duration: 1, ease: 'power1.in' })
+        animateTransition(1, 0.5, currentIndex)
     }
-}, { passive: false });
+}, 100), { passive: false });
 
-window.addEventListener('touchstart', (e) => {
+window.addEventListener('touchstart', debounce((e) => {
     isShowDetail = !isShowDetail
     if (isShowDetail && isMainZoom) {
         showDetail(
@@ -322,10 +341,9 @@ window.addEventListener('touchstart', (e) => {
         currentIndex %= storedlocation.length;
         titlediv.innerHTML = pageData[currentIndex].title;
         contentdiv.innerHTML = pageData[currentIndex].content;
-        gsap.from("#title", { opacity: 0, duration: 1, ease: 'power1.in' })
-        gsap.from("#content", { opacity: 0, duration: 1, ease: 'power1.in' })
+        animateTransition(1, 0.5, currentIndex)
     }
-});
+}, 200));
 
 var titlediv, contentdiv;
 
@@ -362,10 +380,10 @@ function updateScene() {
 
     if (!initDone) return;
     bgpoints.rotation.y += 0.001;
-    bokeh1.rotation.y += 0.0005;
-    bokeh2.rotation.y -= 0.0005;
-    bokeh3.rotation.y += 0.0005;
-    bokeh4.rotation.y -= 0.0005;
+    // bokeh1.rotation.y += 0.0005;
+    // bokeh2.rotation.y -= 0.0005;
+    // bokeh3.rotation.y += 0.0005;
+    // bokeh4.rotation.y -= 0.0005;
 
     sinAdd += 0.002;
     var x, y, z;

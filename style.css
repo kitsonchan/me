@@ -7,7 +7,6 @@ body {
     margin: 0 !important;
     font-family: 'Montserrat', sans-serif;
     background: #243949;
-    /* background: linear-gradient(to bottom, #243949 0%, #517fa4 100%); */
 }
 
 #bg {
@@ -25,10 +24,12 @@ body {
 #title {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    opacity: 0;
 }
 
 #content {
     font-size: 1rem;
+    opacity: 0;
 }
 
 a {

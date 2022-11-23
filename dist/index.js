@@ -14,12 +14,12 @@ var pageData = [{
     {
         title: "Experiences",
         content: "Projects & Working Experiences",
-        detail: "<div class=\"section\">Frontend Developer<br>Ecosa - KR Global Limited, June 2022 - November 2022</div><div class=\"section\">Part-time Developer<br>Nuthon IT Solutions Limited, September 2021 - May 2022</div><div class=\"section\">Intern Developer<br>Nuthon IT Solutions Limited, October 2020 - September 2021</div>"
+        detail: "<div class=\"section\">Frontend Developer<br>Ecosa - KR Global Limited,<br>June 2022 - November 2022</div><div class=\"section\">Part-time Developer<br>Nuthon IT Solutions Limited,<br>September 2021 - May 2022</div><div class=\"section\">Intern Developer<br>Nuthon IT Solutions Limited,<br>October 2020 - September 2021</div><div class=\"section\">Resume adding soon...</div>"
     },
     {
         title: "About This Site",
         content: "What inspired me to make this site",
-        detail: "One day when I was surfing around on <a href=\"https://www.awwwards.com\">Awwwards.com</a> for very cool looking sites I came across the <a href=\"https://www.nasdaq50.com\">Nasdaq site</a>. Im impressed by the particle effects and since I enjoyed learning and working with 3d graphics and animations, I thought it would be cool to have something like this for myself too."
+        detail: "<div class=\"section\">One day when I was surfing around on <a href=\"https://www.awwwards.com\">Awwwards.com</a> for very cool looking sites I came across the <a href=\"https://www.nasdaq50.com\">Nasdaq site</a>. Im impressed by the particle effects and since I enjoyed learning and working with 3d graphics and animations, I thought it would be cool to have something like this for myself too.</div><div class=\"section\">This static site is created using three.js and GSAP animation library.</div>"
     },
     {
         title: "About Me",
@@ -236,18 +236,20 @@ function renderObjects() {
 
 function initAnim() {
     gsap.timeline()
-        .from("#title", { opacity: 0, duration: 1.5, ease: 'power1.in' })
+        .to("#title", { opacity: 1, duration: 1.5, ease: 'power1.in' })
         .to("#bar .progress", { right: 0, duration: 1, ease: 'power2.out' })
-        .from("#content", { opacity: 0, duration: 1, ease: 'power1.in' })
+        .to("#content", { opacity: 1, duration: 1, ease: 'power1.in' })
         .to("#bar .progress", { right: "75%", duration: 1, ease: 'power2.out' })
 }
 
-function animateTransition(t1, t2, index) {
+const tl = gsap.timeline()
+
+function animateTransition(index) {
     const progress = (1 - (1 / pageData.length) - (index / pageData.length)) * 100
     gsap.to("#bar .progress", { right: `${progress}%`, duration: 0.5, ease: 'power2.out' })
-    gsap.timeline()
-        .from("#title", { opacity: 0, duration: t1, ease: 'power1.in' })
-        .from("#content", { opacity: 0, duration: t2, ease: 'power1.in' })
+    tl.clear()
+    tl.to("#title", { opacity: 1, duration: 1, ease: 'power1.in' })
+        .to("#content", { opacity: 1, duration: 0.5, ease: 'power1.in' })
 }
 
 window.addEventListener("resize", onWindowResize, false);
@@ -310,7 +312,7 @@ window.addEventListener("wheel", debounce((e) => {
         currentIndex %= storedlocation.length;
         titlediv.innerHTML = pageData[currentIndex].title;
         contentdiv.innerHTML = pageData[currentIndex].content;
-        animateTransition(1, 0.5, currentIndex)
+        animateTransition(currentIndex)
     }
 }, 100), { passive: false });
 
@@ -341,7 +343,7 @@ window.addEventListener('touchstart', debounce((e) => {
         currentIndex %= storedlocation.length;
         titlediv.innerHTML = pageData[currentIndex].title;
         contentdiv.innerHTML = pageData[currentIndex].content;
-        animateTransition(1, 0.5, currentIndex)
+        animateTransition(currentIndex)
     }
 }, 200));
 

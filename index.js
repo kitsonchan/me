@@ -14,7 +14,7 @@ var pageData = [{
     {
         title: "Experiences",
         content: "Projects & Working Experiences",
-        detail: "<div class=\"section\">Frontend Developer<br>Ecosa - KR Global Limited,<br>June 2022 - November 2022</div><div class=\"section\">Part-time Developer<br>Nuthon IT Solutions Limited,<br>September 2021 - May 2022</div><div class=\"section\">Intern Developer<br>Nuthon IT Solutions Limited,<br>October 2020 - September 2021</div><div class=\"section\">Resume adding soon...</div>"
+        detail: "<div class=\"section\">Frontend Developer<br>Ecosa - KR Global Limited,<br>June 2022 - November 2022</div><div class=\"section\">Part-time Developer<br>Nuthon IT Solutions Limited,<br>September 2021 - May 2022</div><div class=\"section\">Intern Developer<br>Nuthon IT Solutions Limited,<br>October 2020 - September 2021</div><div class=\"section\"><a href=\"./assets/resume2.pdf\">Resume</a></div>"
     },
     {
         title: "About This Site",
@@ -236,10 +236,11 @@ function renderObjects() {
 
 function initAnim() {
     gsap.timeline()
-        .to("#title", { opacity: 1, duration: 1.5, ease: 'power1.in' })
-        .to("#bar .progress", { right: 0, duration: 1, ease: 'power2.out' })
-        .to("#content", { opacity: 1, duration: 1, ease: 'power1.in' })
-        .to("#bar .progress", { right: "75%", duration: 1, ease: 'power2.out' })
+        .to("#title", { opacity: 1, duration: 1.5, ease: 'power1.in' }, 0)
+        .to("#bar .progress", { right: 0, duration: 1, ease: 'power2.out' }, 1)
+        .to("#content", { opacity: 1, duration: 1, ease: 'power1.in' }, 2)
+        .to("#tip", { opacity: 1, duration: 1, ease: 'power1.in' }, 2)
+        .to("#bar .progress", { right: "75%", duration: 1, ease: 'power2.out' }, 3)
 }
 
 const tl = gsap.timeline()
@@ -247,6 +248,7 @@ const tl = gsap.timeline()
 function animateTransition(index) {
     const progress = (1 - (1 / pageData.length) - (index / pageData.length)) * 100
     gsap.to("#bar .progress", { right: `${progress}%`, duration: 0.5, ease: 'power2.out' })
+    gsap.to("#tip", { opacity: 0, duration: 1, ease: 'power2.out' })
     tl.clear()
     tl.to("#title", { opacity: 1, duration: 1, ease: 'power1.in' })
         .to("#content", { opacity: 1, duration: 0.5, ease: 'power1.in' })

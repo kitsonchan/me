@@ -65,11 +65,31 @@ img {
     background: whitesmoke;
 }
 
+#tip {
+    opacity: 0;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    color: whitesmoke;
+    font-size: 1rem;
+}
+
+#tip::before {
+    content: "Tap ";
+    display: inline;
+}
+
 @media (min-width: 768px) {
     #title {
         font-size: 3rem;
     }
     #content {
         font-size: 1.5rem;
+    }
+    #tip {
+        font-size: 1.5rem;
+    }
+    #tip::before {
+        content: "Scroll ";
     }
 }

@@ -14,7 +14,7 @@ var pageData = [{
     {
         title: "Experiences",
         content: "Projects & Working Experiences",
-        detail: "<div class=\"section\">Frontend Developer<br>Ecosa - KR Global Limited,<br>June 2022 - November 2022</div><div class=\"section\">Part-time Developer<br>Nuthon IT Solutions Limited,<br>September 2021 - May 2022</div><div class=\"section\">Intern Developer<br>Nuthon IT Solutions Limited,<br>October 2020 - September 2021</div><div class=\"section\"><a href=\"./assets/resume2.pdf\">Resume</a></div>"
+        detail: "<div class=\"section\">Frontend Developer<br>Ecosa - KR Global Limited,<br>June 2022 - November 2022</div><div class=\"section\">Software Developer<br>Nuthon IT Solutions Limited,<br>October 2020 - May 2022</div><div class=\"section\">Intern Mobile Application Developer<br>Accord Apps Development,<br>June 2020 - September 2020</div><div class=\"section\"><a  href=\"./assets/resume2.pdf\" target=\"_blank\">Resume</a></div>"
     },
     {
         title: "About This Site",
